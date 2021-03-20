@@ -37,7 +37,6 @@ host = input("Adresse IP / URL :")
 
 for port in range(1,1025):
     if is_port_open(host, port):
-        print(f"{GRAY}[!] {host}:{port} {RESET}")
         print(f"{GREEN}[+] {host}:{port} {RESET}")
     else:
         print(f"{GRAY}[!] {host}:{port} {RESET}")
