@@ -2,7 +2,7 @@
 
 import socket 
 from colorama import init, Fore 
-
+fail =0
 init()
 
 GREEN = Fore.GREEN
@@ -26,17 +26,23 @@ def is_port_open(host, port):
     try:
 
         s.connect((host,port))
-        s.settimeout(0.2)
+        s.settimeout(0.02)
     except: 
 
         return False 
     else:
         return True
 
-host = input("Adresse IP / URL :")
+for x in range(256):
+    for y in range(256):
+        for z in range(256):
+            for e in range(256):
+                host = f"{x}.{y}.{z}.{e}"
+                for port in range(1,1025):
+                    if is_port_open(host, port):
+                         print(f"{GREEN}[+] {host}:{port} {RESET}")
+                    else:
+                        fail+1
+print(fail)
 
-for port in range(1,1025):
-    if is_port_open(host, port):
-        print(f"{GREEN}[+] {host}:{port} {RESET}")
-    else:
-        print(f"{GRAY}[!] {host}:{port} {RESET}")
+       
