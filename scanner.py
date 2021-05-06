@@ -38,6 +38,7 @@ for x in range(256):
         for z in range(256):
             for e in range(256):
                 host = f"{x}.{y}.{z}.{e}"
+                print(host)
                 for port in range(1,1025):
                     if is_port_open(host, port):
                          print(f"{GREEN}[+] {host}:{port} {RESET}")
